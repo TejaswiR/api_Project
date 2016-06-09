@@ -1,0 +1,25 @@
+<div class="container-fluid text-center">
+  <h1>Population-App</h1>
+</div>
+<div class="row" ng-controller="MainController as mc">
+ <div class="col-md-6 col-md-offset-3">
+ <table class="table table-stripped table-hover">
+   <thead>
+     <tr>
+       <th>Country</th>
+       <th>Year</th>
+       <th>Population</th>
+       <th>Age</th>
+     </tr>
+   </thead>
+   <tbody>
+  <tr ng-repeat= "n in vm.firstResponse">
+    <td>{{n.NAME}}</td>
+   
+  </tr>
+  </tbody>
+ </table>
+   </div>
+  </div>
+
+
