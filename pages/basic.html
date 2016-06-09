@@ -4,6 +4,25 @@
 <div class="row" ng-controller="MainController as mc">
   <div class="col-md-6 col-md-offset-3">
     <table class="table table-stripped table-hover">
+    <form>
+  Country Name:
+  <select ng-model="mc.CountryName">
+    <option value="IN">India</option>
+    <option value="US">United States</option>
+    <option value="UK">United Kingdom</option>
+    <option value="CA">Canada</option>
+  </select>
+  
+  Year:
+  <select ng-model="mc.Year">
+    <option value="2010">2010</option>
+    <option value="2011">2011</option>
+    <option value="2012">2012</option>
+    <option value="2013">2013</option>
+    <option value="2014">2014</option>
+  </select>
+  <input type="submit" value="Submit" ng-click= mc.getData()>
+    </form>
       <tbody>
         <tr ng-repeat= "n in mc.firstResponse">
           <td>{{n[1]}}</td>

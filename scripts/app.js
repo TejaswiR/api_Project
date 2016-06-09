@@ -6,14 +6,7 @@ $routeProvider
 .when ('/',
   {
     templateUrl: 'pages/basic.html',
-    controller: 'MainController',
-    controllerAs:'mc'
-  })
-
-  {
-    templateUrl: 'pages/percent.html',
-    controller: 'PercentController',
-    controllerAs:'pc'
+    controller: 'MainController'
   })
 
 });
@@ -22,14 +15,14 @@ $routeProvider
 angularApp.controller("MainController",['$resource',
 function($resource){
    var vm=this;
-   var first = $resource('http://api.census.gov/data/timeseries/idb/1year?get=AREA_KM2,NAME,AGE,POP&FIPS=IN&time=2014&SEX=2');
-   vm.firstResponse = first.query();
+   // var first = $resource('http://api.census.gov/data/timeseries/idb/1year?get=AREA_KM2,NAME,AGE,POP');
+   // vm.firstResponse = first.query({FIPS:vm.CountryName,time:vm.Year,key:'479f7cd05dea5959866c96bf97c6a72c45272e5d'});
+   // console.log(vm.firstResponse);
+ vm.getData=function(){
+  var first = $resource('http://api.census.gov/data/timeseries/idb/1year?get=AREA_KM2,NAME,AGE,POP');
+   vm.firstResponse = first.query({FIPS:vm.CountryName,time:vm.Year,key:'479f7cd05dea5959866c96bf97c6a72c45272e5d'});
    console.log(vm.firstResponse);
+ }
 }]);
 
-angularApp.controller("PercentController",['$resorce',
-  function($resource){
-    var vm = this;
-    var second =$resource('http://api.census.gov/data/timeseries/idb/1year?get=AREA_KM2,NAME,AGE,POP&FIPS=IN&time=2014&SEX=2');
-    function percentage()
-  }])
+
